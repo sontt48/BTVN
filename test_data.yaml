@@ -1,0 +1,9 @@
+test_data:
+  URL_tiki: https://tiki.vn/
+
+expected_category : Giày - Dép nữ
+
+# son:
+#   ten: tran thai son  
+#   tuoi: 23
+#   status : single
