@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.11.4 on win32)" generated="20230711 06:58:49.362" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.11.4 on win32)" generated="20230711 21:34:58.834" rpa="false" schemaversion="3">
 <suite id="s1" name="Tiki testcase" source="C:\Python311\BTVN2\BTVN\Testcase\Tiki_testcase.robot">
 <test id="s1-t1" name="TC1 Check product on TiKi" line="6">
 <kw name="open browser with Chrome" library="Keywords">
@@ -8,483 +8,484 @@
 <arg>${URL}</arg>
 <arg>Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230711 06:58:49.615" level="INFO">Opening browser 'Chrome' to base url 'https://tiki.vn/'.</msg>
-<msg timestamp="20230711 06:58:49.615" level="INFO">Executing: C:\Python311\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --output json</msg>
-<status status="PASS" starttime="20230711 06:58:49.615" endtime="20230711 06:58:53.504"/>
+<msg timestamp="20230711 21:34:59.010" level="INFO">Opening browser 'Chrome' to base url 'https://tiki.vn/'.</msg>
+<msg timestamp="20230711 21:34:59.013" level="INFO">Executing: C:\Python311\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --output json</msg>
+<status status="PASS" starttime="20230711 21:34:59.010" endtime="20230711 21:35:04.215"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230711 06:58:53.504" endtime="20230711 06:58:53.633"/>
+<status status="PASS" starttime="20230711 21:35:04.215" endtime="20230711 21:35:04.353"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:49.615" endtime="20230711 06:58:53.633"/>
+<status status="PASS" starttime="20230711 21:34:59.007" endtime="20230711 21:35:04.353"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:49.605" endtime="20230711 06:58:53.633"/>
+<status status="PASS" starttime="20230711 21:34:59.007" endtime="20230711 21:35:04.353"/>
 </test>
 <test id="s1-t2" name="TC2 check product on Tiki" line="9">
-<kw name="Get all categories names" library="Keywords">
+<kw name="Get list" library="Keywords">
 <var>${list}</var>
-<kw name="Get WebElements" library="SeleniumLibrary">
-<var>@{get_list_danhmuc}</var>
 <arg>${locator_danhmuc}</arg>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{get_list}</var>
+<arg>${Section_name}</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.809" level="INFO">@{get_list_danhmuc} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_65")&gt; | &lt;selenium.webdriver.remote.webelement.WebEleme...</msg>
-<status status="PASS" starttime="20230711 06:58:53.641" endtime="20230711 06:58:53.809"/>
+<msg timestamp="20230711 21:35:04.404" level="INFO">@{get_list} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_48")&gt; | &lt;selenium.webdriver.remote.webelement.WebEleme...</msg>
+<status status="PASS" starttime="20230711 21:35:04.356" endtime="20230711 21:35:04.404"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
-<var>${list_danhmuc}</var>
+<var>${list}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20230711 06:58:53.809" level="INFO">${list_danhmuc} = []</msg>
-<status status="PASS" starttime="20230711 06:58:53.809" endtime="20230711 06:58:53.809"/>
+<msg timestamp="20230711 21:35:04.404" level="INFO">${list} = []</msg>
+<status status="PASS" starttime="20230711 21:35:04.404" endtime="20230711 21:35:04.404"/>
 </kw>
 <for flavor="IN">
 <var>${index}</var>
-<value>@{get_list_danhmuc}</value>
+<value>@{get_list}</value>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_65")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_48")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.907" level="INFO">${danhmuc} = Đồ Chơi - Mẹ &amp; Bé</msg>
-<status status="PASS" starttime="20230711 06:58:53.809" endtime="20230711 06:58:53.907"/>
+<msg timestamp="20230711 21:35:04.428" level="INFO">${item} = Đồ Chơi - Mẹ &amp; Bé</msg>
+<status status="PASS" starttime="20230711 21:35:04.405" endtime="20230711 21:35:04.428"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.907" endtime="20230711 06:58:53.907"/>
+<status status="PASS" starttime="20230711 21:35:04.428" endtime="20230711 21:35:04.429"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.809" endtime="20230711 06:58:53.907"/>
+<status status="PASS" starttime="20230711 21:35:04.405" endtime="20230711 21:35:04.429"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_66")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_49")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.923" level="INFO">${danhmuc} = NGON</msg>
-<status status="PASS" starttime="20230711 06:58:53.907" endtime="20230711 06:58:53.923"/>
+<msg timestamp="20230711 21:35:04.443" level="INFO">${item} = NGON</msg>
+<status status="PASS" starttime="20230711 21:35:04.429" endtime="20230711 21:35:04.443"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.923" endtime="20230711 06:58:53.923"/>
+<status status="PASS" starttime="20230711 21:35:04.443" endtime="20230711 21:35:04.443"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.907" endtime="20230711 06:58:53.923"/>
+<status status="PASS" starttime="20230711 21:35:04.429" endtime="20230711 21:35:04.443"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_67")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_50")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.939" level="INFO">${danhmuc} = Điện Thoại - Máy Tính Bảng</msg>
-<status status="PASS" starttime="20230711 06:58:53.923" endtime="20230711 06:58:53.939"/>
+<msg timestamp="20230711 21:35:04.453" level="INFO">${item} = Điện Thoại - Máy Tính Bảng</msg>
+<status status="PASS" starttime="20230711 21:35:04.443" endtime="20230711 21:35:04.453"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.939" endtime="20230711 06:58:53.939"/>
+<status status="PASS" starttime="20230711 21:35:04.453" endtime="20230711 21:35:04.454"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.923" endtime="20230711 06:58:53.939"/>
+<status status="PASS" starttime="20230711 21:35:04.443" endtime="20230711 21:35:04.454"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_68")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_51")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.947" level="INFO">${danhmuc} = Làm Đẹp - Sức Khỏe</msg>
-<status status="PASS" starttime="20230711 06:58:53.939" endtime="20230711 06:58:53.947"/>
+<msg timestamp="20230711 21:35:04.462" level="INFO">${item} = Làm Đẹp - Sức Khỏe</msg>
+<status status="PASS" starttime="20230711 21:35:04.454" endtime="20230711 21:35:04.462"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.947" endtime="20230711 06:58:53.947"/>
+<status status="PASS" starttime="20230711 21:35:04.462" endtime="20230711 21:35:04.462"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.939" endtime="20230711 06:58:53.947"/>
+<status status="PASS" starttime="20230711 21:35:04.454" endtime="20230711 21:35:04.462"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_69")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_52")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.971" level="INFO">${danhmuc} = Điện Gia Dụng</msg>
-<status status="PASS" starttime="20230711 06:58:53.947" endtime="20230711 06:58:53.971"/>
+<msg timestamp="20230711 21:35:04.470" level="INFO">${item} = Điện Gia Dụng</msg>
+<status status="PASS" starttime="20230711 21:35:04.463" endtime="20230711 21:35:04.470"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.971" endtime="20230711 06:58:53.971"/>
+<status status="PASS" starttime="20230711 21:35:04.470" endtime="20230711 21:35:04.470"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.947" endtime="20230711 06:58:53.971"/>
+<status status="PASS" starttime="20230711 21:35:04.462" endtime="20230711 21:35:04.470"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_70")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_53")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.979" level="INFO">${danhmuc} = Thời trang nữ</msg>
-<status status="PASS" starttime="20230711 06:58:53.971" endtime="20230711 06:58:53.979"/>
+<msg timestamp="20230711 21:35:04.475" level="INFO">${item} = Thời trang nữ</msg>
+<status status="PASS" starttime="20230711 21:35:04.470" endtime="20230711 21:35:04.475"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.979" endtime="20230711 06:58:53.979"/>
+<status status="PASS" starttime="20230711 21:35:04.475" endtime="20230711 21:35:04.475"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.971" endtime="20230711 06:58:53.979"/>
+<status status="PASS" starttime="20230711 21:35:04.470" endtime="20230711 21:35:04.475"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_71")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_54")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.988" level="INFO">${danhmuc} = Thời trang nam</msg>
-<status status="PASS" starttime="20230711 06:58:53.979" endtime="20230711 06:58:53.988"/>
+<msg timestamp="20230711 21:35:04.475" level="INFO">${item} = Thời trang nam</msg>
+<status status="PASS" starttime="20230711 21:35:04.475" endtime="20230711 21:35:04.475"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.988" endtime="20230711 06:58:53.988"/>
+<status status="PASS" starttime="20230711 21:35:04.475" endtime="20230711 21:35:04.475"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.979" endtime="20230711 06:58:53.988"/>
+<status status="PASS" starttime="20230711 21:35:04.475" endtime="20230711 21:35:04.475"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_72")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_55")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:53.995" level="INFO">${danhmuc} = Giày - Dép nữ</msg>
-<status status="PASS" starttime="20230711 06:58:53.988" endtime="20230711 06:58:53.995"/>
+<msg timestamp="20230711 21:35:04.490" level="INFO">${item} = Giày - Dép nữ</msg>
+<status status="PASS" starttime="20230711 21:35:04.475" endtime="20230711 21:35:04.490"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:53.995" endtime="20230711 06:58:53.995"/>
+<status status="PASS" starttime="20230711 21:35:04.490" endtime="20230711 21:35:04.490"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.988" endtime="20230711 06:58:53.995"/>
+<status status="PASS" starttime="20230711 21:35:04.475" endtime="20230711 21:35:04.490"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_73")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_56")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.011" level="INFO">${danhmuc} = Túi thời trang nữ</msg>
-<status status="PASS" starttime="20230711 06:58:53.995" endtime="20230711 06:58:54.011"/>
+<msg timestamp="20230711 21:35:04.490" level="INFO">${item} = Túi thời trang nữ</msg>
+<status status="PASS" starttime="20230711 21:35:04.490" endtime="20230711 21:35:04.490"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.011" endtime="20230711 06:58:54.011"/>
+<status status="PASS" starttime="20230711 21:35:04.490" endtime="20230711 21:35:04.490"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.995" endtime="20230711 06:58:54.011"/>
+<status status="PASS" starttime="20230711 21:35:04.490" endtime="20230711 21:35:04.490"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_74")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_57")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.019" level="INFO">${danhmuc} = Giày - Dép nam</msg>
-<status status="PASS" starttime="20230711 06:58:54.011" endtime="20230711 06:58:54.019"/>
+<msg timestamp="20230711 21:35:04.515" level="INFO">${item} = Giày - Dép nam</msg>
+<status status="PASS" starttime="20230711 21:35:04.490" endtime="20230711 21:35:04.515"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.019" endtime="20230711 06:58:54.019"/>
+<status status="PASS" starttime="20230711 21:35:04.515" endtime="20230711 21:35:04.516"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.011" endtime="20230711 06:58:54.019"/>
+<status status="PASS" starttime="20230711 21:35:04.490" endtime="20230711 21:35:04.516"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_75")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_58")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.027" level="INFO">${danhmuc} = Túi thời trang nam</msg>
-<status status="PASS" starttime="20230711 06:58:54.019" endtime="20230711 06:58:54.027"/>
+<msg timestamp="20230711 21:35:04.523" level="INFO">${item} = Túi thời trang nam</msg>
+<status status="PASS" starttime="20230711 21:35:04.516" endtime="20230711 21:35:04.523"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.027" endtime="20230711 06:58:54.027"/>
+<status status="PASS" starttime="20230711 21:35:04.523" endtime="20230711 21:35:04.523"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.019" endtime="20230711 06:58:54.027"/>
+<status status="PASS" starttime="20230711 21:35:04.516" endtime="20230711 21:35:04.523"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_76")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_59")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.035" level="INFO">${danhmuc} = Balo và Vali</msg>
-<status status="PASS" starttime="20230711 06:58:54.027" endtime="20230711 06:58:54.035"/>
+<msg timestamp="20230711 21:35:04.531" level="INFO">${item} = Balo và Vali</msg>
+<status status="PASS" starttime="20230711 21:35:04.523" endtime="20230711 21:35:04.531"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.035" endtime="20230711 06:58:54.035"/>
+<status status="PASS" starttime="20230711 21:35:04.531" endtime="20230711 21:35:04.531"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.027" endtime="20230711 06:58:54.035"/>
+<status status="PASS" starttime="20230711 21:35:04.523" endtime="20230711 21:35:04.531"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_77")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_60")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.044" level="INFO">${danhmuc} = Phụ kiện thời trang</msg>
-<status status="PASS" starttime="20230711 06:58:54.035" endtime="20230711 06:58:54.044"/>
+<msg timestamp="20230711 21:35:04.538" level="INFO">${item} = Phụ kiện thời trang</msg>
+<status status="PASS" starttime="20230711 21:35:04.531" endtime="20230711 21:35:04.538"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.044" endtime="20230711 06:58:54.044"/>
+<status status="PASS" starttime="20230711 21:35:04.539" endtime="20230711 21:35:04.539"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.035" endtime="20230711 06:58:54.044"/>
+<status status="PASS" starttime="20230711 21:35:04.531" endtime="20230711 21:35:04.539"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_78")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_61")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.052" level="INFO">${danhmuc} = Đồng hồ và Trang sức</msg>
-<status status="PASS" starttime="20230711 06:58:54.044" endtime="20230711 06:58:54.052"/>
+<msg timestamp="20230711 21:35:04.541" level="INFO">${item} = Đồng hồ và Trang sức</msg>
+<status status="PASS" starttime="20230711 21:35:04.539" endtime="20230711 21:35:04.541"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.052" endtime="20230711 06:58:54.052"/>
+<status status="PASS" starttime="20230711 21:35:04.541" endtime="20230711 21:35:04.541"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.044" endtime="20230711 06:58:54.052"/>
+<status status="PASS" starttime="20230711 21:35:04.539" endtime="20230711 21:35:04.541"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_79")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_62")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.060" level="INFO">${danhmuc} = Laptop - Máy Vi Tính - Linh kiện</msg>
-<status status="PASS" starttime="20230711 06:58:54.052" endtime="20230711 06:58:54.060"/>
+<msg timestamp="20230711 21:35:04.541" level="INFO">${item} = Laptop - Máy Vi Tính - Linh kiện</msg>
+<status status="PASS" starttime="20230711 21:35:04.541" endtime="20230711 21:35:04.541"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.060" endtime="20230711 06:58:54.060"/>
+<status status="PASS" starttime="20230711 21:35:04.541" endtime="20230711 21:35:04.555"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.052" endtime="20230711 06:58:54.060"/>
+<status status="PASS" starttime="20230711 21:35:04.541" endtime="20230711 21:35:04.555"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_80")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_63")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.068" level="INFO">${danhmuc} = Nhà Cửa - Đời Sống</msg>
-<status status="PASS" starttime="20230711 06:58:54.060" endtime="20230711 06:58:54.068"/>
+<msg timestamp="20230711 21:35:04.563" level="INFO">${item} = Nhà Cửa - Đời Sống</msg>
+<status status="PASS" starttime="20230711 21:35:04.555" endtime="20230711 21:35:04.563"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.068" endtime="20230711 06:58:54.068"/>
+<status status="PASS" starttime="20230711 21:35:04.564" endtime="20230711 21:35:04.564"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.060" endtime="20230711 06:58:54.068"/>
+<status status="PASS" starttime="20230711 21:35:04.555" endtime="20230711 21:35:04.564"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_81")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_64")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.076" level="INFO">${danhmuc} = Cross Border - Hàng Quốc Tế</msg>
-<status status="PASS" starttime="20230711 06:58:54.068" endtime="20230711 06:58:54.076"/>
+<msg timestamp="20230711 21:35:04.570" level="INFO">${item} = Cross Border - Hàng Quốc Tế</msg>
+<status status="PASS" starttime="20230711 21:35:04.564" endtime="20230711 21:35:04.570"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.076" endtime="20230711 06:58:54.076"/>
+<status status="PASS" starttime="20230711 21:35:04.570" endtime="20230711 21:35:04.570"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.068" endtime="20230711 06:58:54.076"/>
+<status status="PASS" starttime="20230711 21:35:04.564" endtime="20230711 21:35:04.570"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_82")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_65")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.084" level="INFO">${danhmuc} = Bách Hóa Online</msg>
-<status status="PASS" starttime="20230711 06:58:54.076" endtime="20230711 06:58:54.084"/>
+<msg timestamp="20230711 21:35:04.576" level="INFO">${item} = Bách Hóa Online</msg>
+<status status="PASS" starttime="20230711 21:35:04.570" endtime="20230711 21:35:04.576"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.084" endtime="20230711 06:58:54.084"/>
+<status status="PASS" starttime="20230711 21:35:04.576" endtime="20230711 21:35:04.576"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.076" endtime="20230711 06:58:54.084"/>
+<status status="PASS" starttime="20230711 21:35:04.570" endtime="20230711 21:35:04.576"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_83")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_66")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.092" level="INFO">${danhmuc} = Thiết Bị Số - Phụ Kiện Số</msg>
-<status status="PASS" starttime="20230711 06:58:54.084" endtime="20230711 06:58:54.092"/>
+<msg timestamp="20230711 21:35:04.583" level="INFO">${item} = Thiết Bị Số - Phụ Kiện Số</msg>
+<status status="PASS" starttime="20230711 21:35:04.577" endtime="20230711 21:35:04.583"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.092" endtime="20230711 06:58:54.092"/>
+<status status="PASS" starttime="20230711 21:35:04.583" endtime="20230711 21:35:04.583"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.084" endtime="20230711 06:58:54.092"/>
+<status status="PASS" starttime="20230711 21:35:04.577" endtime="20230711 21:35:04.583"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_84")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_67")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.100" level="INFO">${danhmuc} = Voucher - Dịch vụ</msg>
-<status status="PASS" starttime="20230711 06:58:54.092" endtime="20230711 06:58:54.100"/>
+<msg timestamp="20230711 21:35:04.589" level="INFO">${item} = Voucher - Dịch vụ</msg>
+<status status="PASS" starttime="20230711 21:35:04.583" endtime="20230711 21:35:04.589"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.100" endtime="20230711 06:58:54.100"/>
+<status status="PASS" starttime="20230711 21:35:04.589" endtime="20230711 21:35:04.590"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.092" endtime="20230711 06:58:54.100"/>
+<status status="PASS" starttime="20230711 21:35:04.583" endtime="20230711 21:35:04.590"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_85")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_68")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.110" level="INFO">${danhmuc} = Ô Tô - Xe Máy - Xe Đạp</msg>
-<status status="PASS" starttime="20230711 06:58:54.100" endtime="20230711 06:58:54.110"/>
+<msg timestamp="20230711 21:35:04.591" level="INFO">${item} = Ô Tô - Xe Máy - Xe Đạp</msg>
+<status status="PASS" starttime="20230711 21:35:04.590" endtime="20230711 21:35:04.591"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.110" endtime="20230711 06:58:54.110"/>
+<status status="PASS" starttime="20230711 21:35:04.591" endtime="20230711 21:35:04.591"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.100" endtime="20230711 06:58:54.110"/>
+<status status="PASS" starttime="20230711 21:35:04.590" endtime="20230711 21:35:04.591"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_86")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_69")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.116" level="INFO">${danhmuc} = Nhà Sách Tiki</msg>
-<status status="PASS" starttime="20230711 06:58:54.110" endtime="20230711 06:58:54.116"/>
+<msg timestamp="20230711 21:35:04.591" level="INFO">${item} = Nhà Sách Tiki</msg>
+<status status="PASS" starttime="20230711 21:35:04.591" endtime="20230711 21:35:04.591"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.116" endtime="20230711 06:58:54.116"/>
+<status status="PASS" starttime="20230711 21:35:04.591" endtime="20230711 21:35:04.591"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.110" endtime="20230711 06:58:54.116"/>
+<status status="PASS" starttime="20230711 21:35:04.591" endtime="20230711 21:35:04.591"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_87")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_70")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.124" level="INFO">${danhmuc} = Điện Tử - Điện Lạnh</msg>
-<status status="PASS" starttime="20230711 06:58:54.116" endtime="20230711 06:58:54.124"/>
+<msg timestamp="20230711 21:35:04.606" level="INFO">${item} = Điện Tử - Điện Lạnh</msg>
+<status status="PASS" starttime="20230711 21:35:04.591" endtime="20230711 21:35:04.606"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.124" endtime="20230711 06:58:54.124"/>
+<status status="PASS" starttime="20230711 21:35:04.606" endtime="20230711 21:35:04.606"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.116" endtime="20230711 06:58:54.124"/>
+<status status="PASS" starttime="20230711 21:35:04.591" endtime="20230711 21:35:04.606"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_88")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_71")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.140" level="INFO">${danhmuc} = Thể Thao - Dã Ngoại</msg>
-<status status="PASS" starttime="20230711 06:58:54.124" endtime="20230711 06:58:54.140"/>
+<msg timestamp="20230711 21:35:04.606" level="INFO">${item} = Thể Thao - Dã Ngoại</msg>
+<status status="PASS" starttime="20230711 21:35:04.606" endtime="20230711 21:35:04.606"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.140" endtime="20230711 06:58:54.140"/>
+<status status="PASS" starttime="20230711 21:35:04.606" endtime="20230711 21:35:04.606"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.124" endtime="20230711 06:58:54.140"/>
+<status status="PASS" starttime="20230711 21:35:04.606" endtime="20230711 21:35:04.606"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_89")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_72")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.149" level="INFO">${danhmuc} = Máy Ảnh - Máy Quay Phim</msg>
-<status status="PASS" starttime="20230711 06:58:54.140" endtime="20230711 06:58:54.149"/>
+<msg timestamp="20230711 21:35:04.621" level="INFO">${item} = Máy Ảnh - Máy Quay Phim</msg>
+<status status="PASS" starttime="20230711 21:35:04.606" endtime="20230711 21:35:04.621"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.149" endtime="20230711 06:58:54.149"/>
+<status status="PASS" starttime="20230711 21:35:04.621" endtime="20230711 21:35:04.621"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.140" endtime="20230711 06:58:54.149"/>
+<status status="PASS" starttime="20230711 21:35:04.606" endtime="20230711 21:35:04.621"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_90")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_73")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${danhmuc}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.158" level="INFO">${danhmuc} = Sản phẩm Tài chính - Bảo hiểm</msg>
-<status status="PASS" starttime="20230711 06:58:54.149" endtime="20230711 06:58:54.158"/>
+<msg timestamp="20230711 21:35:04.629" level="INFO">${item} = Sản phẩm Tài chính - Bảo hiểm</msg>
+<status status="PASS" starttime="20230711 21:35:04.621" endtime="20230711 21:35:04.629"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_danhmuc}</arg>
-<arg>${danhmuc}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.158" endtime="20230711 06:58:54.158"/>
+<status status="PASS" starttime="20230711 21:35:04.629" endtime="20230711 21:35:04.629"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.149" endtime="20230711 06:58:54.158"/>
+<status status="PASS" starttime="20230711 21:35:04.621" endtime="20230711 21:35:04.630"/>
 </iter>
-<status status="PASS" starttime="20230711 06:58:53.809" endtime="20230711 06:58:54.158"/>
+<status status="PASS" starttime="20230711 21:35:04.404" endtime="20230711 21:35:04.630"/>
 </for>
-<msg timestamp="20230711 06:58:54.158" level="INFO">${list} = ['Đồ Chơi - Mẹ &amp; Bé', 'NGON', 'Điện Thoại - Máy Tính Bảng', 'Làm Đẹp - Sức Khỏe', 'Điện Gia Dụng', 'Thời trang nữ', 'Thời trang nam', 'Giày - Dép nữ', 'Túi thời trang nữ', 'Giày - Dép nam', 'Túi thời ...</msg>
-<status status="PASS" starttime="20230711 06:58:53.641" endtime="20230711 06:58:54.158"/>
+<msg timestamp="20230711 21:35:04.630" level="INFO">${list} = ['Đồ Chơi - Mẹ &amp; Bé', 'NGON', 'Điện Thoại - Máy Tính Bảng', 'Làm Đẹp - Sức Khỏe', 'Điện Gia Dụng', 'Thời trang nữ', 'Thời trang nam', 'Giày - Dép nữ', 'Túi thời trang nữ', 'Giày - Dép nam', 'Túi thời ...</msg>
+<status status="PASS" starttime="20230711 21:35:04.354" endtime="20230711 21:35:04.630"/>
 </kw>
 <kw name="Verify that desired category should be in category list" library="Keywords">
 <arg>${list}</arg>
@@ -493,220 +494,221 @@
 <arg>${category_list}</arg>
 <arg>${desired_categoy_}</arg>
 <doc>Fails if the ``value`` is not found from ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.160" endtime="20230711 06:58:54.160"/>
+<status status="PASS" starttime="20230711 21:35:04.630" endtime="20230711 21:35:04.630"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.158" endtime="20230711 06:58:54.160"/>
+<status status="PASS" starttime="20230711 21:35:04.630" endtime="20230711 21:35:04.631"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:53.633" endtime="20230711 06:58:54.160"/>
+<status status="PASS" starttime="20230711 21:35:04.354" endtime="20230711 21:35:04.631"/>
 </test>
 <test id="s1-t3" name="TC3 Lấy các danh mục bên dưới phần &quot;Nổi bật&quot; , xác nhận xem có mục Xả kho ở trong đó" line="13">
-<kw name="Get all noi bat names" library="Keywords">
-<var>${list_noibat}</var>
-<kw name="Get WebElements" library="SeleniumLibrary">
-<var>@{get_list_noibat}</var>
+<kw name="Get list" library="Keywords">
+<var>${list}</var>
 <arg>${locator_noibat}</arg>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>@{get_list}</var>
+<arg>${Section_name}</arg>
 <doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.172" level="INFO">@{get_list_noibat} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_93")&gt; | &lt;selenium.webdriver.remote.webelement.WebEleme...</msg>
-<status status="PASS" starttime="20230711 06:58:54.163" endtime="20230711 06:58:54.172"/>
+<msg timestamp="20230711 21:35:04.644" level="INFO">@{get_list} = [ &lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_74")&gt; | &lt;selenium.webdriver.remote.webelement.WebEleme...</msg>
+<status status="PASS" starttime="20230711 21:35:04.633" endtime="20230711 21:35:04.644"/>
 </kw>
 <kw name="Create List" library="BuiltIn">
-<var>${list_noibat}</var>
+<var>${list}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20230711 06:58:54.172" level="INFO">${list_noibat} = []</msg>
-<status status="PASS" starttime="20230711 06:58:54.172" endtime="20230711 06:58:54.172"/>
+<msg timestamp="20230711 21:35:04.644" level="INFO">${list} = []</msg>
+<status status="PASS" starttime="20230711 21:35:04.644" endtime="20230711 21:35:04.644"/>
 </kw>
 <for flavor="IN">
 <var>${index}</var>
-<value>@{get_list_noibat}</value>
+<value>@{get_list}</value>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_93")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_74")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.188" level="INFO">${noibat} = Tiki ChatGPT</msg>
-<status status="PASS" starttime="20230711 06:58:54.180" endtime="20230711 06:58:54.188"/>
+<msg timestamp="20230711 21:35:04.655" level="INFO">${item} = Tiki ChatGPT</msg>
+<status status="PASS" starttime="20230711 21:35:04.645" endtime="20230711 21:35:04.655"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.188" endtime="20230711 06:58:54.188"/>
+<status status="PASS" starttime="20230711 21:35:04.655" endtime="20230711 21:35:04.655"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.180" endtime="20230711 06:58:54.188"/>
+<status status="PASS" starttime="20230711 21:35:04.645" endtime="20230711 21:35:04.655"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_58")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_39")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.204" level="INFO">${noibat} = Astra Reward</msg>
-<status status="PASS" starttime="20230711 06:58:54.188" endtime="20230711 06:58:54.204"/>
+<msg timestamp="20230711 21:35:04.663" level="INFO">${item} = Astra Reward</msg>
+<status status="PASS" starttime="20230711 21:35:04.655" endtime="20230711 21:35:04.663"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.204" endtime="20230711 06:58:54.204"/>
+<status status="PASS" starttime="20230711 21:35:04.663" endtime="20230711 21:35:04.663"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.188" endtime="20230711 06:58:54.204"/>
+<status status="PASS" starttime="20230711 21:35:04.655" endtime="20230711 21:35:04.663"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_59")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_40")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.212" level="INFO">${noibat} = Tiki Exchange</msg>
-<status status="PASS" starttime="20230711 06:58:54.204" endtime="20230711 06:58:54.212"/>
+<msg timestamp="20230711 21:35:04.671" level="INFO">${item} = Tiki Exchange</msg>
+<status status="PASS" starttime="20230711 21:35:04.664" endtime="20230711 21:35:04.671"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.220" endtime="20230711 06:58:54.220"/>
+<status status="PASS" starttime="20230711 21:35:04.671" endtime="20230711 21:35:04.671"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.204" endtime="20230711 06:58:54.220"/>
+<status status="PASS" starttime="20230711 21:35:04.664" endtime="20230711 21:35:04.672"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_60")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_41")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.252" level="INFO">${noibat} = Giá Rẻ Mỗi Ngày</msg>
-<status status="PASS" starttime="20230711 06:58:54.220" endtime="20230711 06:58:54.252"/>
+<msg timestamp="20230711 21:35:04.683" level="INFO">${item} = Giá Rẻ Mỗi Ngày</msg>
+<status status="PASS" starttime="20230711 21:35:04.672" endtime="20230711 21:35:04.683"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.252" endtime="20230711 06:58:54.252"/>
+<status status="PASS" starttime="20230711 21:35:04.683" endtime="20230711 21:35:04.683"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.220" endtime="20230711 06:58:54.252"/>
+<status status="PASS" starttime="20230711 21:35:04.672" endtime="20230711 21:35:04.683"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_61")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_42")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.260" level="INFO">${noibat} = Xả kho</msg>
-<status status="PASS" starttime="20230711 06:58:54.252" endtime="20230711 06:58:54.260"/>
+<msg timestamp="20230711 21:35:04.690" level="INFO">${item} = Xả kho</msg>
+<status status="PASS" starttime="20230711 21:35:04.684" endtime="20230711 21:35:04.690"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.260" endtime="20230711 06:58:54.260"/>
+<status status="PASS" starttime="20230711 21:35:04.691" endtime="20230711 21:35:04.691"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.252" endtime="20230711 06:58:54.260"/>
+<status status="PASS" starttime="20230711 21:35:04.683" endtime="20230711 21:35:04.691"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_62")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_43")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.268" level="INFO">${noibat} = Mã giảm giá</msg>
-<status status="PASS" starttime="20230711 06:58:54.260" endtime="20230711 06:58:54.268"/>
+<msg timestamp="20230711 21:35:04.700" level="INFO">${item} = Mã giảm giá</msg>
+<status status="PASS" starttime="20230711 21:35:04.691" endtime="20230711 21:35:04.700"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.268" endtime="20230711 06:58:54.268"/>
+<status status="PASS" starttime="20230711 21:35:04.700" endtime="20230711 21:35:04.700"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.260" endtime="20230711 06:58:54.268"/>
+<status status="PASS" starttime="20230711 21:35:04.691" endtime="20230711 21:35:04.700"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_63")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_44")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.276" level="INFO">${noibat} = Ưu đãi thẻ, ví</msg>
-<status status="PASS" starttime="20230711 06:58:54.268" endtime="20230711 06:58:54.276"/>
+<msg timestamp="20230711 21:35:04.747" level="INFO">${item} = Ưu đãi thẻ, ví</msg>
+<status status="PASS" starttime="20230711 21:35:04.700" endtime="20230711 21:35:04.747"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.276" endtime="20230711 06:58:54.276"/>
+<status status="PASS" starttime="20230711 21:35:04.747" endtime="20230711 21:35:04.747"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.268" endtime="20230711 06:58:54.276"/>
+<status status="PASS" starttime="20230711 21:35:04.700" endtime="20230711 21:35:04.747"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_64")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_45")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.292" level="INFO">${noibat} = Đóng tiền, nạp thẻ</msg>
-<status status="PASS" starttime="20230711 06:58:54.276" endtime="20230711 06:58:54.292"/>
+<msg timestamp="20230711 21:35:04.765" level="INFO">${item} = Đóng tiền, nạp thẻ</msg>
+<status status="PASS" starttime="20230711 21:35:04.748" endtime="20230711 21:35:04.765"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.292" endtime="20230711 06:58:54.292"/>
+<status status="PASS" starttime="20230711 21:35:04.765" endtime="20230711 21:35:04.765"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.276" endtime="20230711 06:58:54.292"/>
+<status status="PASS" starttime="20230711 21:35:04.747" endtime="20230711 21:35:04.765"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_94")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_75")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.292" level="INFO">${noibat} = Mua trước trả sau</msg>
-<status status="PASS" starttime="20230711 06:58:54.292" endtime="20230711 06:58:54.292"/>
+<msg timestamp="20230711 21:35:04.774" level="INFO">${item} = Mua trước trả sau</msg>
+<status status="PASS" starttime="20230711 21:35:04.765" endtime="20230711 21:35:04.774"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.292" endtime="20230711 06:58:54.292"/>
+<status status="PASS" starttime="20230711 21:35:04.775" endtime="20230711 21:35:04.775"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.292" endtime="20230711 06:58:54.292"/>
+<status status="PASS" starttime="20230711 21:35:04.765" endtime="20230711 21:35:04.775"/>
 </iter>
 <iter>
-<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="c8ea654d876d86824b15e08a03beb613", element="FEAD2F12D2BC0FE97C6ABB827BBE43D6_element_95")&gt;</var>
+<var name="${index}">&lt;selenium.webdriver.remote.webelement.WebElement (session="73e4bec1134cbf08286cf94fce36575d", element="C4C53778B14B03F266F1CF42C049A042_element_76")&gt;</var>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${noibat}</var>
+<var>${item}</var>
 <arg>locator=${index}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230711 06:58:54.308" level="INFO">${noibat} = Bảo hiểm Tiki360</msg>
-<status status="PASS" starttime="20230711 06:58:54.292" endtime="20230711 06:58:54.308"/>
+<msg timestamp="20230711 21:35:04.782" level="INFO">${item} = Bảo hiểm Tiki360</msg>
+<status status="PASS" starttime="20230711 21:35:04.775" endtime="20230711 21:35:04.782"/>
 </kw>
 <kw name="Append To List" library="Collections">
-<arg>${list_noibat}</arg>
-<arg>${noibat}</arg>
+<arg>${list}</arg>
+<arg>${item}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.308" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:35:04.782" endtime="20230711 21:35:04.782"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.292" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:35:04.775" endtime="20230711 21:35:04.782"/>
 </iter>
-<status status="PASS" starttime="20230711 06:58:54.172" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:35:04.645" endtime="20230711 21:35:04.782"/>
 </for>
-<msg timestamp="20230711 06:58:54.308" level="INFO">${list_noibat} = ['Tiki ChatGPT', 'Astra Reward', 'Tiki Exchange', 'Giá Rẻ Mỗi Ngày', 'Xả kho', 'Mã giảm giá', 'Ưu đãi thẻ, ví', 'Đóng tiền, nạp thẻ', 'Mua trước trả sau', 'Bảo hiểm Tiki360']</msg>
-<status status="PASS" starttime="20230711 06:58:54.163" endtime="20230711 06:58:54.308"/>
+<msg timestamp="20230711 21:35:04.782" level="INFO">${list} = ['Tiki ChatGPT', 'Astra Reward', 'Tiki Exchange', 'Giá Rẻ Mỗi Ngày', 'Xả kho', 'Mã giảm giá', 'Ưu đãi thẻ, ví', 'Đóng tiền, nạp thẻ', 'Mua trước trả sau', 'Bảo hiểm Tiki360']</msg>
+<status status="PASS" starttime="20230711 21:35:04.633" endtime="20230711 21:35:04.782"/>
 </kw>
 <kw name="Verify that desired category should be in category list" library="Keywords">
-<arg>${list_noibat}</arg>
+<arg>${list}</arg>
 <arg>${expected_noibat}</arg>
 <kw name="List Should Contain Value" library="Collections">
 <arg>${category_list}</arg>
 <arg>${desired_categoy_}</arg>
 <doc>Fails if the ``value`` is not found from ``list``.</doc>
-<status status="PASS" starttime="20230711 06:58:54.308" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:35:04.783" endtime="20230711 21:35:04.783"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.308" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:35:04.782" endtime="20230711 21:35:04.783"/>
 </kw>
-<status status="PASS" starttime="20230711 06:58:54.162" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:35:04.632" endtime="20230711 21:35:04.783"/>
 </test>
-<status status="PASS" starttime="20230711 06:58:49.362" endtime="20230711 06:58:54.308"/>
+<status status="PASS" starttime="20230711 21:34:58.846" endtime="20230711 21:35:04.784"/>
 </suite>
 <statistics>
 <total>
