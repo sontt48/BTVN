@@ -1,0 +1,4 @@
+testdata:
+  ULR_tiki:  https://tiki.vn/
+  section_name:  Nổi bật
+  expected_category:  Xả kho
