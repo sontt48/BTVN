@@ -1,0 +1,5 @@
+test_data:
+  URL_tiki: https://tiki.vn/
+  section_name: nổi bật
+  expected_category:  Xả Kho
+
