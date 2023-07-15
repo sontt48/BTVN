@@ -27,4 +27,19 @@ Get list
   END
   [Return]  ${list}
 
+Click on category names
+  [Arguments]  ${Section_name}
+  ${specific_category}  String.Replace String  ${locator_category}  _category   ${Section_name} 
+  #thay thế cụ thể 1 giá trị cho category  
+  Scroll Element Into View   ${specific_category}
+  Click Element   ${specific_category}
+
+Verify title should be equa 
+  [Arguments]  ${expected_title} 
+  ${title}=  SeleniumLibrary.Get Title
+  BuiltIn.Should Be Equal   ${title}   ${expected_title}
+
+  
+
+
  
