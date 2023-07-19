@@ -9,7 +9,7 @@ Check product on Tiki
   Verify that desired category should be in category list  ${list}  ${expected_category}
 
 
-  Click on category name    ${desired_categoy_}
+  Click on category name    ${expected_category}
   Verify title after clicking on category name  ${expected_title}
   Filter to get expected product 
   

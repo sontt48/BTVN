@@ -5,7 +5,7 @@ Library    Collections
 
 
 Resource    ${CURDIR}/../Variables.robot
-Resource    ${CURDIR}/../Keywords/common_keywords.robot
+Resource    ${CURDIR}/../Keywords.robot
 Resource    ${CURDIR}/../page/web/hompage/homepage.robot
 
 Variables    ${CURDIR}/../test_data.yaml
