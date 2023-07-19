@@ -14,4 +14,5 @@ Check product on Tiki
   Filter to get expected product 
   
   Wait Until Keyword Succeeds    3x    1s    Get product name of the last product at PLP and go to PDP
+  Click on the last product to go PDP 
   Verify product name is correctly at PDP    ${last_product_name_PLP}

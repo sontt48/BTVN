@@ -54,7 +54,6 @@ Get product name of the last product at PLP and go to PDP
   SeleniumLibrary.Wait Until Element Is Visible 	 locator=${last_item_name_plp}
   ${get_text_last_item_plp}  Get Text    ${last_item_name_plp}
   Set Test Variable     ${last_product_name_PLP}     ${get_text_last_item_plp}
-  Click Element    ${last_item}
 
 Verify product name is correctly at PDP 
   [Arguments]    ${product_name_PLP}
