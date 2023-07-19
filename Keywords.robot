@@ -3,6 +3,7 @@ Library    SeleniumLibrary
 Library    String
 Library    Collections
 Resource  ${CURDIR}/Variables.robot
+Variables  ${CURDIR}/test_data.yaml
 *** Keywords ***
 Open browser with Chrome
   [Arguments]  ${URL}
@@ -34,23 +35,28 @@ Verify that title should be equal
 Click find more button
   [Arguments]  ${cate_name}
   ${find_more_locator}  String.Replace String  ${dynamic_findmore}  _category_name  ${cate_name}
+  Wait Until Element Is Visible  ${find_more_locator}
+  Scroll Element Into View  ${find_more_locator}
   Click Element  ${find_more_locator}
 Click on desired options
   [Arguments]  ${cate_name}  ${option_name}
-  Click find more button    ${cate_name}
+  Wait Until Keyword Succeeds    3x    1s  Click find more button    ${cate_name}
   ${option_locator}  String.Replace String  ${dynamic_option}  _option_name  ${option_name}
   Wait Until Element Is Visible  ${option_locator}
   Scroll Element Into View  ${option_locator}
   Click Element    ${option_locator}
-Get name of the last product in PLP
+Get name, brand, color of the last product in PLP
+  [Arguments]  ${brand_PLP}  ${size_PLP}
   ${name_PLP}  Get Text    ${last_item_PLP}
-  [Return]  ${name_PLP}
-Get name of the last product in PDP
+  ${attribute_list_PLP}  Create Dictionary  name=${name_PLP}  brand=${brand_PLP}  size=${size_PLP}
+  [Return]  ${attribute_list_PLP}
+Click a product
+  Wait Until Element Is Visible  ${last_item_PLP}
   Click Element    ${last_item_PLP}
-  ${name_PDP}  Wait Until Keyword Succeeds    3x    1s   Get Text    ${last_item_PDP}
-  [Return]  ${name_PDP}
-Verify that names in 2 pages should be the same
-  ${name_PLP}  Get name of the last product in PLP
-  ${name_PDP}  Get name of the last product in PDP
-  Should Be Equal  ${name_PLP}  ${name_PDP}
-  
+Get name, brand, color of the last product in PDP
+  Click a product
+  ${name_PDP}  Wait Until Keyword Succeeds    3x    1s   Get Text    ${last_item_name_PDP}
+  ${brand_PDP}  Wait Until Keyword Succeeds    3x    1s   Get Text    ${last_item_brand_PDP}
+  ${size_PDP}  Wait Until Keyword Succeeds    3x    1s   Get Text  ${last_item_size_PDP}
+  ${attribute_list_PDP}  Create Dictionary  name=${name_PDP}  brand=${brand_PDP}  size=${size_PDP}
+  [Return]  ${attribute_list_PDP}

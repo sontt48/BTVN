@@ -2,3 +2,14 @@ testdata:
   ULR_tiki:  https://tiki.vn/
   section_name:  Nổi bật
   expected_category:  Xả kho
+  clicked_cate: Giày - Dép nữ
+  expired_text: Giày - Dép nữ chính hãng, giá tốt Tháng 7, 2023 | Tiki
+  brand_section:  Thương hiệu
+  color_section:  Màu sắc
+  size_section:  Kích cỡ
+  brand_option:  Biti's
+  size_option:  '36'
+  color_option:  Bạc
+  attribute_product_PLP:
+    brand: Biti's
+    size: 36
