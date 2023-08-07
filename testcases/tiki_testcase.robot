@@ -1,13 +1,13 @@
 *** Settings ***
 Resource    ${CURDIR}/../import/import_desktop.robot
+Test Setup      Open Browser with Chrome    ${test_data.URL_tiki}
+Test Teardown   Close Browser
+Force Tags   tiki
 
 ***Keywords***
-Get data from excel 
-  [Arguments]   
-
-
 get all students detail  
   [Arguments]    ${endpoint} 
+ 
   ${response}=    REST.GET   ${endpoint}
   REST.Integer    response status    200
   ${response_body}=    REST.Output    response body
@@ -44,6 +44,7 @@ Check product on Tiki
 
 test api
   [Tags]   api 
+
   ${response}=    REST.GET   https://tiki.vn/api/v2/products/263582290
   Log    ${response}
   ${response_body}=    REST.Output    response body

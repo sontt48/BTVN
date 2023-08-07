@@ -6,9 +6,9 @@ Click on a element
     SeleniumLibrary.Click Element 	 locator=${locator}
 
 Input text into text box
-    [Arguments]    ${locator}
+    [Arguments]    ${locator}    ${text}
     SeleniumLibrary.Wait Until Element Is Visible 	 locator=${locator}
-    SeleniumLibrary.Input Text 	 locator=${locator}
+    SeleniumLibrary.Input Text 	 ${locator}    ${text}
 
 Open Browser with Chrome
   [Arguments]  ${URL}

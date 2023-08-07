@@ -21,3 +21,26 @@ Read all data from excel
     END
     Log    ${list_data}
 
+Check log in happy case 
+    [Arguments]    ${number_of_row}     
+    ${username}=    Read data from excel    ${number_of_row}    ${1}
+    ${Password}=    Read data from excel    ${number_of_row}    ${2}
+    Input text into text box    ${username_locator}    ${username}
+    Input text into text box    ${password_locator}    ${Password}
+    Click on a element   ${login_btn}
+    SeleniumLibrary.Wait Until Element Is Visible 	 locator=${image_logo}
+    SeleniumLibrary.Element Should Be Visible 	 locator=${image_logo}
+
+Check log in unhappy case 
+    [Arguments]    ${number_of_row}     
+    ${username}=    Read data from excel    ${number_of_row}    ${1}
+    ${Password}=    Read data from excel    ${number_of_row}    ${2}
+    Input text into text box    ${username_locator}    ${username}
+    Input text into text box    ${password_locator}    ${Password}
+    Click on a element   ${login_btn}
+    SeleniumLibrary.Wait Until Element Is Not Visible 	 locator=${image_logo}
+
+    
+
+
+

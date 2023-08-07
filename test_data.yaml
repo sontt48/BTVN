@@ -1,7 +1,9 @@
 test_data:
   URL_tiki: https://tiki.vn/
+  orange_HRM: https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 
 expected_category : Giày - Dép nữ
+
 
 # son:
 #   ten: tran thai son  
